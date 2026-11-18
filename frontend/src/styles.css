@@ -118,12 +118,23 @@ button.ghost {
 }
 .msg { margin-top: 0.7rem; color: var(--muted); }
 .msg.err { color: var(--bad); }
+.msg.ok { color: var(--ok); }
+.muted { color: var(--muted); }
+.panel h3 {
+  margin: 0.2rem 0 0.55rem;
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  color: var(--navy);
+}
+.inline-link { color: var(--ticket); font-weight: 600; margin-left: 0.35rem; }
+.inline-link:hover { text-decoration: underline; }
 .tag {
   display: inline-block; padding: 0.12rem 0.45rem; border-radius: 999px;
   font-size: 0.75rem; background: rgba(36, 56, 100, 0.08); color: var(--navy);
 }
 .tag.ok { background: rgba(47, 143, 107, 0.12); color: var(--ok); }
 .tag.warn { background: rgba(196, 59, 122, 0.12); color: var(--ticket); }
+.tag.bad { background: rgba(196, 92, 92, 0.14); color: var(--bad); }
 
 @media (max-width: 720px) {
   .chip { min-width: 0; flex: 1 1 40%; border-radius: 0.75rem; }

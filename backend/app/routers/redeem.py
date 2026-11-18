@@ -11,6 +11,11 @@ def facts(business_day: str | None = Query(None)):
     return svc.list_facts(business_day)
 
 
+@router.get("/redeem/orphans")
+def orphans(business_day: str | None = Query(None)):
+    return svc.list_orphan_issues(business_day)
+
+
 @router.get("/redeem/preview")
 def preview(business_day: str | None = Query(None)):
     return svc.preview(business_day)

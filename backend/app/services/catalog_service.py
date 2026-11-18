@@ -18,6 +18,8 @@ def dashboard() -> dict[str, Any]:
         events = event_repo.list_events(conn, day)
         batches = batch_repo.list_batches(conn)
         sealed_today = fact_repo.day_is_sealed(conn, day)
+        # 与钉扎闸 / 钉预览同源的未核扫描，杜绝「闸报无未核但清单非空」
+        orphans = event_repo.find_orphan_issues(conn, day)
         return {
             "business_day": day,
             "event_count": len(events),
@@ -25,6 +27,7 @@ def dashboard() -> dict[str, Any]:
             "open_fact_count": open_n,
             "sealed_fact_count": sealed_n,
             "redeem_total_today": total,
+            "orphan_issue_count": len(orphans),
             "batch_count": len(batches),
             "day_sealed": sealed_today,
         }
